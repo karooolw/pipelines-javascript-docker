@@ -27,13 +27,15 @@ spec:
 
       - name: javaapp
 
-        image: kwaksconreg.azurecr.io/karooolw/pipelines-javascript-docker:latest
+        image: kwaksconreg.azurecr.io/karooolw/pipelines-javascript-docker:latest 
 
         ports:
 
         - containerPort: 8080
 
           name: javaapp
+     imagePullSecrets:
+     - name: test
 ---
 apiVersion: v1
 
