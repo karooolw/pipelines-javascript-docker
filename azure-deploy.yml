@@ -51,8 +51,9 @@ spec:
   type: LoadBalancer
 
   ports:
-  - port: 80
-  - targetport: 8080
+  - protocol: "TCP"
+    port: 80
+    targetPort: 8080
 
   selector:
     app: javaapp
