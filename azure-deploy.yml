@@ -35,6 +35,23 @@ spec:
 
           name: javaapp
 ---
+apiVersion: v1
 
+kind: Service
+
+metadata:
+
+  name: javafront
+
+spec:
+
+  type: LoadBalancer
+
+  ports:
+
+  - port: 80
+
+  selector:
+    app: javaapp
 
 
