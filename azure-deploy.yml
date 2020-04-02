@@ -1,7 +1,7 @@
 ---
-apiVersion: v1
+apiVersion: apps/v1
 
-kind: Service
+kind: Deployment
 
 metadata:
 
@@ -52,8 +52,26 @@ spec:
   - http:
       paths:
       - backend:
-          serviceName: javaapp
+          serviceName: javafront
           servicePort: 8080
         path: /(.*)
+---
+apiVersion: v1
 
+kind: Service
+
+metadata:
+
+  name: javafront
+
+spec:
+
+  type: LoadBalancer
+
+  ports:
+  - port: 80
+  - targetport: 8080
+
+  selector:
+    app: javaapp
 
