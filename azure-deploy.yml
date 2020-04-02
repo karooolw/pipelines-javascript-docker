@@ -1,19 +1,40 @@
 ---
 apiVersion: v1
 
-kind: Service
+kind: Deployment
 
 metadata:
 
   name: javaapp
 
 spec:
-  type: ClusterIP
-  ports:
 
-  - port: 8080
-
+  replicas: 1
   selector:
+    matchLabels:
+      app: javaapp
+  template:
 
-    app: javaapp
+    metadata:
+
+      labels:
+
+        app: javaapp
+
+    spec:
+
+      containers:
+
+      - name: javaapp
+
+        image: kwaksconreg.azurecr.io/karooolw/pipelines-javascript-docker:latest
+
+        ports:
+
+        - containerPort: 8080
+
+          name: javaapp
 ---
+
+
+
