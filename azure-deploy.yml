@@ -34,8 +34,9 @@ spec:
         - containerPort: 8080
 
           name: javaapp
-     imagePullSecrets:
-     - name: test
+
+      imagePullSecrets:
+      - name: test
 ---
 apiVersion: v1
 
